@@ -50,7 +50,7 @@ module.exports = function(config) {
         }
 
         for (var i = 0; i < config.translations.length; ++i) {
-            var current = config.traslations[i];
+            var current = config.translations[i];
 
             if (current["new"] instanceof Object) {
                 current["new"] = current["new"][config.lang || M.getLocale()];
