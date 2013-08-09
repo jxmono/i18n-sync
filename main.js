@@ -45,6 +45,10 @@ module.exports = function(config) {
             }
         }
 
+        if (typeof messageToTranslate === "string") {
+            message = messageToTranslate;
+        }
+
         if (!message) {
             return console.error("The message is not in the i18n format.");
         }
