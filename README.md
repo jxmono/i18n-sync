@@ -1,7 +1,7 @@
 i18n
 ====
 
-Translate messages emited by other modules.
+Translate messages emited by the other modules.
 
 ## How to Use?
 
