@@ -6,29 +6,6 @@ module.exports = function(config) {
     var self = this;
     Events.call(self, config);
 
-    /*
-     *  Translates the messages emited by modules
-     *  =========================================
-     *
-     *  config.translations is an array of objects
-     *  in the following format:
-     *
-     *  [
-     *      {
-     *          "old": "I am.",
-     *          "new": "Je suis."
-     *      },
-     *      {
-     *          "old": "You are.",
-     *          "new": {
-     *              "fr": "Tu es.",
-     *              "ro": "Tu ești."
-     *          }
-     *      },
-     *      ...
-     *  ]
-     *
-     * */
     self.translate  = function (messageToTranslate, callback) {
 
         try {
@@ -47,6 +24,7 @@ module.exports = function(config) {
 
         if (typeof messageToTranslate === "string") {
             message = messageToTranslate;
+            messageToTranslate = {};
         }
 
         if (!message) {
