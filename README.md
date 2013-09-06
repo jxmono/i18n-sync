@@ -63,7 +63,7 @@ Example:
  - Renamed `config.listen` into `config.translates` to prevent overwriting of Events configuration (that uses `config.listen`).
 
 #### Migration from `v0.1.x` to `v0.2.0`:
- - Replace `config.translations` array with an object, like described in **How to use** section
+ - Replace `config.translations` array with an object, like described in [**How to use** section](#v02x)
  - Replace `config.listen` with `config.translates`
 
 ### v0.1.1
