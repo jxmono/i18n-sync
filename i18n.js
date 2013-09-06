@@ -38,7 +38,7 @@ module.exports = function(config) {
         if (!message) { return console.error("The message is not in the i18n format."); }
 
         // overwrite the message with its translation
-        var message = config.translations[message];
+        var message = config.translations[message] || message;
 
         if (message instanceof Object) {
             message = message[config.lang || M.getLocale()];

@@ -56,6 +56,9 @@ Example:
 
 ### dev
 
+### v0.2.1
+ - Fixed translating of messages that are not in `config.translations`.
+
 ### v0.2.0
  - Update to Events v0.1.3 and Bind v0.1.3
  - Renamed `main.js` into `i18n.js`
