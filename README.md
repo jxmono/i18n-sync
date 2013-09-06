@@ -32,5 +32,12 @@ Example:
 
 ## Changelog
 
+### dev
+ - Update to Events v0.1.3 and Bind v0.1.3
+ - Renamed `main.js` into `i18n.js`
+
 ### v0.1.1
  - Fixed translating strings.
+
+### v0.1.0
+ - Initial release
