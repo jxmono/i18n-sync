@@ -8,50 +8,51 @@ module.exports = function(config) {
 
     self.translate  = function (messageToTranslate, callback) {
 
+        // if the message to translate is a valid json format string,
+        // convert it into an object
         try {
             messageToTranslate = JSON.parse(messageToTranslate);
         } catch (e) {}
 
-        config.translations = config.translations || [];
+        // set default value for translations
+        config.translations = config.translations || {};
 
+        // received message
         var message;
 
-        if (messageToTranslate instanceof Object) {
-            if (messageToTranslate.message) {
-                message = messageToTranslate.message;
-            }
+        // if messageToTranlsate is an object, received message is
+        // message key value from messageToTranslate
+        if (messageToTranslate instanceof Object && messageToTranslate.message) {
+            message = messageToTranslate.message;
         }
 
+        // if messageToTranlsate is a string, received message is
+        // messageToTranlsate. messageToTranlsate is converted into
+        // an object
         if (typeof messageToTranslate === "string") {
             message = messageToTranslate;
             messageToTranslate = {};
         }
 
-        if (!message) {
-            return console.error("The message is not in the i18n format.");
+        // no message, throw error
+        if (!message) { return console.error("The message is not in the i18n format."); }
+
+        // overwrite the message with its translation
+        var message = config.translations[message];
+
+        if (message instanceof Object) {
+            message = message[config.lang || M.getLocale()];
         }
 
-        for (var i = 0; i < config.translations.length; ++i) {
-            var current = config.translations[i];
-
-            if (current["new"] instanceof Object) {
-                current["new"] = current["new"][config.lang || M.getLocale()];
-            }
-
-            if (current["old"] === message) {
-                message = current["new"];
-                break;
-            }
-        }
-
+        // callback the translation
         messageToTranslate.message = message;
         callback(null, messageToTranslate);
     };
 
     // listen to crud events
-    if (config.listen instanceof Array) {
-        for (var i = 0; i < config.listen.length; ++i) {
-            self.on("message", config.listen[i], self.translate);
+    if (config.translates instanceof Array) {
+        for (var i = 0; i < config.translates.length; ++i) {
+            self.on("message", config.translates[i], self.translate);
         }
     }
 
