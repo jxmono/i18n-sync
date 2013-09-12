@@ -56,6 +56,9 @@ Example:
 
 ### dev
 
+### v0.2.2
+ - Update to Events v0.1.4 and Bind v0.1.5
+
 ### v0.2.1
  - Fixed translating of messages that are not in `config.translations`.
 
