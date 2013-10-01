@@ -56,14 +56,17 @@ Example:
 
 ### dev
 
+### v0.2.3
+ - Update to Bind `v0.2.0`
+
 ### v0.2.2
- - Update to Events v0.1.4 and Bind v0.1.5
+ - Update to Events `v0.1.4` and Bind `v0.1.5`
 
 ### v0.2.1
  - Fixed translating of messages that are not in `config.translations`.
 
 ### v0.2.0
- - Update to Events v0.1.3 and Bind v0.1.3
+ - Update to Events `v0.1.3` and Bind `v0.1.3`
  - Renamed `main.js` into `i18n.js`
  - New format of `config.translations`: object instead of array
  - Renamed `config.listen` into `config.translates` to prevent overwriting of Events configuration (that uses `config.listen`).
