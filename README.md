@@ -56,6 +56,9 @@ Example:
 
 ### dev
 
+### v0.2.4
+ - Dynamically add miids to listen to using `listenTo` function.
+
 ### v0.2.3
  - Update to Bind `v0.2.0`
 
