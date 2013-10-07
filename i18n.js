@@ -49,13 +49,30 @@ module.exports = function(config) {
         callback(null, messageToTranslate);
     };
 
-    // listen to crud events
-    if (config.translates instanceof Array) {
-        for (var i = 0; i < config.translates.length; ++i) {
-            self.on("message", config.translates[i], self.translate);
+    // dinamically add a new miid to listen
+    self.listenTo = function (listen) {
+
+        // force listen to be an array
+        if (typeof listen === "string") {
+            listen = [listen];
         }
-    }
 
+        // listen to crud events
+        if (listen instanceof Array) {
+            // every listen miid to listen
+            for (var i = 0; i < listen.length; ++i) {
+                // add message listen
+                self.on("message", listen[i], self.translate);
+            }
+            return;
+        }
 
+        console.error("Invalid type of listen parameter.");
+    };
+
+    // call listen to
+    self.listenTo(config.translates);
+
+    // emit ready
     self.emit("ready", config);
 };
