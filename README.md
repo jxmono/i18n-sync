@@ -56,6 +56,9 @@ Example:
 
 ### dev
 
+### v0.2.5
+ - We don't accept JSON booleans, numbers and so on, but only objects.
+
 ### v0.2.4
  - Dynamically add miids to listen to using `listenTo` function.
 

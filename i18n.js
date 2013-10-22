@@ -11,7 +11,10 @@ module.exports = function(config) {
         // if the message to translate is a valid json format string,
         // convert it into an object
         try {
-            messageToTranslate = JSON.parse(messageToTranslate);
+            var parsedValue = JSON.parse(messageToTranslate);
+            if (parsedValue && parsedValue.constructor === Object) {
+                messageToTranslate = parsedValue;
+            }
         } catch (e) {}
 
         // set default value for translations
