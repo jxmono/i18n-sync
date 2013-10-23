@@ -55,6 +55,10 @@ Example:
 ## Changelog
 
 ### dev
+ - Add new fixes and features here
+
+### v0.2.6
+ - Update to Bind `v0.1.7`
 
 ### v0.2.5
  - We don't accept JSON booleans, numbers and so on, but only objects.
