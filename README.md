@@ -56,6 +56,9 @@ Example:
 
 ### dev
 
+### v0.2.6
+ - Updated to Events v0.1.8 and Bind v0.2.1
+
 ### v0.2.5
  - We don't accept JSON booleans, numbers and so on, but only objects.
 
