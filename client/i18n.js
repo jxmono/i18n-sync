@@ -1,4 +1,11 @@
-M.wrap('github/jillix/i18n-sync/v0.3.0/client/i18n.js', function (require, module, exports) {
+/**
+ * i18n-sync
+ * The sync version of i18n module.
+ *
+ * @name exports
+ * @function
+ * @param {Object} config The module config
+ */
 module.exports = function(config) {
 
     var self = this;
@@ -17,7 +24,7 @@ module.exports = function(config) {
      * @param {String (Optional)} locale The locale of translated string.
      * @return
      */
-    self.translate = self.t = function (messageToTranslate, locale, callback) {
+    self.translate = self.t = function(messageToTranslate, locale, callback) {
 
         // set locale
         locale = locale || M.getLocale();
@@ -30,7 +37,6 @@ module.exports = function(config) {
         return translatedMessage;
     };
 
+    // Emit "ready" event
     self.emit("ready", config);
 };
-
-return module; });
