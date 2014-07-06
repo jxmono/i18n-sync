@@ -1,50 +1,28 @@
 module.exports = function(config) {
 
     var self = this;
+    self._config = config;
 
-    self.translate  = function (messageToTranslate, callback) {
+    // set default value for translations
+    config.translations = config.translations || {};
 
-        // if the message to translate is a valid json format string,
-        // convert it into an object
-        try {
-            var parsedValue = JSON.parse(messageToTranslate);
-            if (parsedValue && parsedValue.constructor === Object) {
-                messageToTranslate = parsedValue;
-            }
-        } catch (e) {}
+    /**
+     * translate
+     *
+     * @name translate
+     * @function
+     * @param {String} messageToTranslate The message that should be translated.
+     * @param {String (Optional)} locale The locale of translated string.
+     * @return
+     */
+    self.translate  = function (messageToTranslate, locale, callback) {
 
-        // set default value for translations
-        config.translations = config.translations || {};
+        // set locale
+        locale = locale || M.getLocale();
 
-        // received message
-        var message;
+        // translate message
+        var translatedMessage = config.translations[lang] || messageToTranslate;
 
-        // if messageToTranlsate is an object, received message is
-        // message key value from messageToTranslate
-        if (messageToTranslate instanceof Object && messageToTranslate.message) {
-            message = messageToTranslate.message;
-        }
-
-        // if messageToTranlsate is a string, received message is
-        // messageToTranlsate. messageToTranlsate is converted into
-        // an object
-        if (typeof messageToTranslate === "string") {
-            message = messageToTranslate;
-            messageToTranslate = {};
-        }
-
-        // no message, throw error
-        if (!message) { return console.error("The message is not in the i18n format."); }
-
-        // overwrite the message with its translation
-        var message = config.translations[message] || message;
-
-        if (message instanceof Object) {
-            message = message[config.lang || M.getLocale()];
-        }
-
-        // callback the translation
-        messageToTranslate.message = message;
-        callback(null, messageToTranslate);
+        return translatedMessage;
     };
 };
