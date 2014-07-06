@@ -3,7 +3,7 @@
     "owner": "jillix",
     "name": "i18n-sync",
     "dependencies": [
-        "/i18n.js"
+        "/client/i18n.js"
     ],
     "operations": []
 }
