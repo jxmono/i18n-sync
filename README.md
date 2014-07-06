@@ -1,9 +1,8 @@
-i18n
-====
+i18n-sync
+=========
+The sync version of i18n Mono module.
 
-TODO
-
-`config.translations` is an object in the following format:
+`translations` is an object in the following format:
 
 Example:
 
@@ -18,7 +17,6 @@ Example:
 }
 ```
 
-`config.listen` is an array of miids that emit the `message` event.
 ## Changelog
 
 ### v0.3.0
