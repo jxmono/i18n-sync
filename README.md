@@ -1,13 +1,7 @@
 i18n
 ====
 
-Translate messages emited by the other modules.
-
-## How to Use?
-
-### Configuration
-
-#### v0.2.x
+TODO
 
 `config.translations` is an object in the following format:
 
@@ -24,38 +18,11 @@ Example:
 }
 ```
 
-`config.translates` is an array of miids that emit the `message` event.
-
-#### v0.1.x
-
-##### DEPRECATED IN v0.2.x
-
-`config.translations` is an array of objects in the following format:
-
-Example:
-
-```JSON
-  [
-      {
-          "old": "I am.",
-          "new": "Je suis."
-      },
-      {
-          "old": "You are.",
-          "new": {
-              "fr": "Tu es.",
-              "ro": "Tu ești."
-          }
-      },
-      ...
-  ]
-```
-
 `config.listen` is an array of miids that emit the `message` event.
 ## Changelog
 
-### dev
- - Add new fixes and features here
+### v0.3.0
+ - Created this fork from the [original module](https://github.com/IonicaBizau/i18n).
 
 ### v0.2.7
  - Updated to Events v0.1.8 and Bind v0.2.1
