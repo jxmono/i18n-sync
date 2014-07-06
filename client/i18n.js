@@ -9,6 +9,7 @@ module.exports = function(config) {
 
     /**
      * translate
+     * Translates the message passed in the first parameter.
      *
      * @name translate
      * @function
@@ -22,7 +23,9 @@ module.exports = function(config) {
         locale = locale || M.getLocale();
 
         // translate message
-        var translatedMessage = config.translations[lang] || messageToTranslate;
+        var translatedMessage = (
+            config.translations[messageToTranslate] || {}
+        )[locale] || messageToTranslate;
 
         return translatedMessage;
     };
