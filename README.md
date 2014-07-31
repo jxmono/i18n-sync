@@ -19,6 +19,11 @@ Example:
 
 ## Changelog
 
+### v0.4.0
+ - First stable version of sync version
+
+---
+
 ### v0.3.0
  - Created this fork from the [original module](https://github.com/IonicaBizau/i18n).
 
